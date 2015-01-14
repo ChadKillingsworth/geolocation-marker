@@ -38,8 +38,8 @@ module.exports = function (grunt) {
           use_types_for_optimization: undefined,
           only_closure_dependencies: undefined,
           closure_entry_point: 'GeolocationMarker.exports',
-          output_wrapper: '(function(){%output%\n}).call(window)\n//# sourceMappingURL=geolocationmarker.compiled.js.map',
-          create_source_map: 'dist/geolocationmarker.compiled.js.map',
+          output_wrapper: '(function(){%output%\n}).call(window)\n//# sourceMappingURL=geolocationmarker-compiled.js.map',
+          create_source_map: 'dist/geolocationmarker-compiled.js.map',
           jscomp_error: [
             'accessControls',
             'ambiguousFunctionDecl',

@@ -6,4 +6,4 @@ c.p=function(a){var b=new google.maps.LatLng(a.coords.latitude,a.coords.longitud
 "position",b)};c.q=function(){var a=this;navigator.geolocation&&(this.f=navigator.geolocation.watchPosition(function(b){a.p(b)},function(b){google.maps.event.trigger(a,"geolocation_error",b)},this.g()))};c.c=function(a,b){for(var e in b)!0!==n[e]&&(a[e]=b[e]);return a};g("GeolocationMarker",m);g("GeolocationMarker.prototype.getAccuracy",m.prototype.k);g("GeolocationMarker.prototype.getBounds",m.prototype.h);g("GeolocationMarker.prototype.getMap",m.prototype.i);
 g("GeolocationMarker.prototype.getMinimumAccuracy",m.prototype.e);g("GeolocationMarker.prototype.getPosition",m.prototype.j);g("GeolocationMarker.prototype.getPositionOptions",m.prototype.g);g("GeolocationMarker.prototype.setCircleOptions",m.prototype.l);g("GeolocationMarker.prototype.setMap",m.prototype.d);g("GeolocationMarker.prototype.setMarkerOptions",m.prototype.m);g("GeolocationMarker.prototype.setMinimumAccuracy",m.prototype.n);g("GeolocationMarker.prototype.setPositionOptions",m.prototype.o);
 }).call(window)
-//# sourceMappingURL=geolocationmarker.compiled.js.map
+//# sourceMappingURL=geolocationmarker-compiled.js.map
