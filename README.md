@@ -2,6 +2,8 @@
  
 This library uses geolocation to add a marker and accuracy circle to a map. The marker position is automatically updated as the user position changes.
 
+![GeolocationMarker example](images/example.png)
+
 To add the Geolocation Marker, just instantiate a new GeolocationMarker object, passing the constructor your map object:
 
 ```JavaScript

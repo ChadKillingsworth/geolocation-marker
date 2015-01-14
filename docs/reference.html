@@ -3,30 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <title>Geolocation Marker Reference</title>
-  <link rel="stylesheet" type="text/css" href="//code.google.com/css/codesite.css" />
-  <link rel="stylesheet" type="text/css" href="//google-maps-utility-library-v3.googlecode.com/svn/trunk/util/docs/template/local_extensions.css" />
-  <script type="text/javascript" src="//code.google.com/js/prettify.js"></script>
+  <style>
+    html, body{font-family: Arial, Helvetica ,sans-serif;}
+    a{color: #4285f4;text-decoration: none;}
+    a:hover{text-decoration: underline;color:#006ac8;}
+    table {border: 1px solid #ddd;border-spacing: 0; border-collapse: collapse; margin: 0 0 1.5em;}
+    th, td{padding: 6px 10px;border: 1px solid #ddd;text-align: left;}
+    th {border: 1px solid #4d90fe;color: #fff;background-color: #6199df;}
+    h2{border-bottom: 1px solid #ddd;}
+    code{color: #007000;white-space: pre;}
+  </style>
 </head>
-<body onload="prettyPrint()">
-  <h1>Geolocation Marker for Google Maps v3</h1>
-  <p>This library uses geolocation to add a marker and accuracy circle to a map. The marker
-    position is automatically updated as the user position changes.</p>
-  <p><img alt="" src="//google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/images/example.png" width="300" height="219" /></p>
-  <p>To add the Geolocation Marker, just instantiate a new GeolocationMarker object, passing
-    your map to it: </p>
-  <pre class="prettyprint">var mapOptions = {
-  zoom: 17,
-  center: new google.maps.LatLng(-34.397, 150.644),
-  mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-var map = new google.maps.Map(document.getElementById('map_canvas'),
-  mapOptions);
-var GeoMarker = new GeolocationMarker(map);</pre>
-  <p>See the <a href="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/examples/mylocation.html">example</a>.</p>
+<body>
+  <h1>Geolocation Marker for Google Maps v3 Reference</h1>
   <p style="font-style:italic;">Note: This library will only function in browsers supporting the
   <a href="http://dev.w3.org/geo/api/spec-source.html">W3C Geolocation API</a>.
   This excludes Internet Explorer versions 8 and older.</p>
-  <h2 id="GeolocationMarker">class GeolocationMarker</h2>
+  <h2 id="GeolocationMarker">GeolocationMarker class</h2>
   <p>This class extends <a href="https://developers.google.com/maps/documentation/javascript/reference#MVCObject">google.maps.MVCObject</a>.</p>
   <h3>Constructor</h3>
   <table style="width:90%">
@@ -38,8 +31,8 @@ var GeoMarker = new GeolocationMarker(map);</pre>
       <tr class="odd">
         <td>
           <code>GeolocationMarker(map?:<a href="https://developers.google.com/maps/documentation/javascript/reference#Map">google.maps.Map</a>,
-            marker_opts?:<a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions">google.maps.MarkerOptions</a>,
-            circle_opts?:<a href="https://developers.google.com/maps/documentation/javascript/reference#CircleOptions">google.maps.CircleOptions</a>)</code>
+    marker_opts?:<a href="https://developers.google.com/maps/documentation/javascript/reference#MarkerOptions">google.maps.MarkerOptions</a>,
+    circle_opts?:<a href="https://developers.google.com/maps/documentation/javascript/reference#CircleOptions">google.maps.CircleOptions</a>)</code>
         </td>
         <td>
           A marker and accuracy circle positioned on the map to track the user's location.
@@ -72,8 +65,7 @@ var GeoMarker = new GeolocationMarker(map);</pre>
           <code>getBounds()</code>
         </td>
         <td>
-          <code><a href="https://developers.google.com/maps/documentation/javascript/reference#LatLngBounds">
-            google.maps.LatLngBounds</a>|null</code>
+          <code><a href="https://developers.google.com/maps/documentation/javascript/reference#LatLngBounds">google.maps.LatLngBounds</a>|null</code>
         </td>
         <td>
           Returns the lat/lng bounds containing the marker and accuracy circle. Will return
@@ -85,8 +77,7 @@ var GeoMarker = new GeolocationMarker(map);</pre>
           <code>getMap()</code>
         </td>
         <td>
-          <code><a href="https://developers.google.com/maps/documentation/javascript/reference#Map">
-            google.maps.Map</a></code>
+          <code><a href="https://developers.google.com/maps/documentation/javascript/reference#Map">google.maps.Map</a></code>
         </td>
         <td>
         </td>
@@ -108,8 +99,7 @@ var GeoMarker = new GeolocationMarker(map);</pre>
           <code>getPosition()</code>
         </td>
         <td>
-          <code><a href="https://developers.google.com/maps/documentation/javascript/reference#LatLng">
-            google.maps.LatLng</a>|null</code>
+          <code><a href="https://developers.google.com/maps/documentation/javascript/reference#LatLng">google.maps.LatLng</a>|null</code>
         </td>
         <td>
           Returns the center of the marker and accuracy circle. Will return <code>null</code>
@@ -121,8 +111,7 @@ var GeoMarker = new GeolocationMarker(map);</pre>
           <code>getPositionOptions()</code>
         </td>
         <td>
-          <code><a href="http://dev.w3.org/geo/api/spec-source.html#position_options_interface">
-            PositionOptionsInterface</a></code>
+          <code><a href="http://dev.w3.org/geo/api/spec-source.html#position_options_interface">PositionOptionsInterface</a></code>
         </td>
         <td>
           Returns the current options used to call the
@@ -174,8 +163,8 @@ var GeoMarker = new GeolocationMarker(map);</pre>
       </tr>
       <tr class="odd">
         <td>
-          <code>setPositionOptions(positionOpts:<a href="http://dev.w3.org/geo/api/spec-source.html#position_options_interface">
-            PositionOptionsInterface</a>)</code>
+          <code>setPositionOptions(
+  positionOpts:<a href="http://dev.w3.org/geo/api/spec-source.html#position_options_interface">PositionOptionsInterface</a>)</code>
         </td>
         <td></td>
         <td>
@@ -206,8 +195,7 @@ var GeoMarker = new GeolocationMarker(map);</pre>
           <code>geolocation_error</code>
         </td>
         <td>
-          <code><a href="http://dev.w3.org/geo/api/spec-source.html#position_error_interface">
-            PositionErrorInterface</a></code>
+          <code><a href="http://dev.w3.org/geo/api/spec-source.html#position_error_interface">PositionErrorInterface</a></code>
         </td>
         <td>
           Triggered whenever geolocation fails. Can be caused by a user denying permission
