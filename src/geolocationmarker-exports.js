@@ -22,25 +22,35 @@
  * scripts, these exports are not needed. 
  */
 
-GeolocationMarker.prototype['getAccuracy'] =
-    GeolocationMarker.prototype.getAccuracy;
-GeolocationMarker.prototype['getBounds'] =
-    GeolocationMarker.prototype.getBounds;
-GeolocationMarker.prototype['getMap'] = GeolocationMarker.prototype.getMap;
-GeolocationMarker.prototype['getMinimumAccuracy'] =
-    GeolocationMarker.prototype.getMinimumAccuracy;
-GeolocationMarker.prototype['getPosition'] =
-    GeolocationMarker.prototype.getPosition;
-GeolocationMarker.prototype['getPositionOptions'] =
-    GeolocationMarker.prototype.getPositionOptions;
-GeolocationMarker.prototype['setCircleOptions'] =
-    GeolocationMarker.prototype.setCircleOptions;
-GeolocationMarker.prototype['setMap'] = GeolocationMarker.prototype.setMap;
-GeolocationMarker.prototype['setMarkerOptions'] =
-    GeolocationMarker.prototype.setMarkerOptions;
-GeolocationMarker.prototype['setMinimumAccuracy'] =
-    GeolocationMarker.prototype.setMinimumAccuracy;
-GeolocationMarker.prototype['setPositionOptions'] =
-    GeolocationMarker.prototype.setPositionOptions;
+goog.require('GeolocationMarker');
+goog.provide('GeolocationMarker.exports');
 
-window['GeolocationMarker'] = GeolocationMarker;
+GeolocationMarker.exports = function() {
+    GeolocationMarker.Init();
+
+    goog.exportSymbol('GeolocationMarker', GeolocationMarker);
+    
+    goog.exportSymbol('GeolocationMarker.prototype.getAccuracy',
+        GeolocationMarker.prototype.getAccuracy);
+    goog.exportSymbol('GeolocationMarker.prototype.getBounds',
+        GeolocationMarker.prototype.getBounds);
+    goog.exportSymbol('GeolocationMarker.prototype.getMap',
+        GeolocationMarker.prototype.getMap);
+    goog.exportSymbol('GeolocationMarker.prototype.getMinimumAccuracy',
+        GeolocationMarker.prototype.getMinimumAccuracy);
+    goog.exportSymbol('GeolocationMarker.prototype.getPosition',
+        GeolocationMarker.prototype.getPosition);
+    goog.exportSymbol('GeolocationMarker.prototype.getPositionOptions',
+        GeolocationMarker.prototype.getPositionOptions);
+    goog.exportSymbol('GeolocationMarker.prototype.setCircleOptions',
+        GeolocationMarker.prototype.setCircleOptions);
+    goog.exportSymbol('GeolocationMarker.prototype.setMap',
+        GeolocationMarker.prototype.setMap);
+    goog.exportSymbol('GeolocationMarker.prototype.setMarkerOptions',
+        GeolocationMarker.prototype.setMarkerOptions);
+    goog.exportSymbol('GeolocationMarker.prototype.setMinimumAccuracy',
+        GeolocationMarker.prototype.setMinimumAccuracy);
+    goog.exportSymbol('GeolocationMarker.prototype.setPositionOptions',
+        GeolocationMarker.prototype.setPositionOptions);
+};
+GeolocationMarker.exports();

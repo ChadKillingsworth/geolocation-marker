@@ -1,0 +1,4 @@
+[submodule "src/closure-library"]
+	path = src/closure-library
+	url = https://github.com/google/closure-library.git
+	branch = master
