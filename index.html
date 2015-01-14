@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Geolocation-marker : A library for adding a marker which tracks a user&#39;s location for use with the Google Maps JavaScript API v3.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Geolocation-marker</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ChadKillingsworth/geolocation-marker">View on GitHub</a>
+
+          <h1 id="project_title">Geolocation-marker</h1>
+          <h2 id="project_tagline">A library for adding a marker which tracks a user&#39;s location for use with the Google Maps JavaScript API v3.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ChadKillingsworth/geolocation-marker/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ChadKillingsworth/geolocation-marker/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="geolocation-marker-for-google-maps-api-v3" class="anchor" href="#geolocation-marker-for-google-maps-api-v3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Geolocation Marker for Google Maps API v3</h1>
+
+<p>This library uses geolocation to add a marker and accuracy circle to a map. The marker position is automatically updated as the user position changes.</p>
+
+<p><img src="images/example.png" alt="GeolocationMarker example"></p>
+
+<p>To add the Geolocation Marker, just instantiate a new GeolocationMarker object, passing the constructor your map object:</p>
+
+<div class="highlight highlight-JavaScript"><pre><span class="pl-s">var</span> mapOptions <span class="pl-k">=</span> {
+  zoom<span class="pl-k">:</span> <span class="pl-c1">17</span>,
+  center<span class="pl-k">:</span> <span class="pl-k">new</span> <span class="pl-en">google.maps</span>.LatLng(<span class="pl-k">-</span><span class="pl-c1">34.397</span>, <span class="pl-c1">150.644</span>),
+  mapTypeId<span class="pl-k">:</span> google.maps.MapTypeId.ROADMAP
+};
+<span class="pl-s">var</span> map <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">google.maps</span>.Map(<span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">'</span>map_canvas<span class="pl-pds">'</span></span>),
+    mapOptions);
+<span class="pl-s">var</span> GeoMarker <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">GeolocationMarker</span>(map);</pre></div>
+
+<p><a href="http://chadkillingsworth.github.io/geolocation-marker/examples/mylocation.html">See the example</a>.</p>
+
+<p><em>Note: This library will only function in browsers supporting the W3C Geolocation API. This excludes Internet Explorer versions 8 and older.</em></p>
+
+<p><a href="http://chadkillingsworth.github.io/geolocation-marker/docs/reference.html">Reference documentation</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Geolocation-marker maintained by <a href="https://github.com/ChadKillingsworth">ChadKillingsworth</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
