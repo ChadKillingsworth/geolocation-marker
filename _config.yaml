@@ -1,9 +1,23 @@
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+exclude: ["params.json", "src"]
 defaults:
+  -
     scope:
-      path: "/readme.md"
+      path: ""
+      type: "pages"
     values:
       layout: "index"
       permalink: "/index.html"
+  -
+     scope:
+       path: "docs"
+     values:
+       layout: nil
+  -
+     scope:
+       path: "test"
+     values:
+       layout: nil
+
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
