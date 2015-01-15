@@ -19,8 +19,8 @@ var map = new google.maps.Map(document.getElementById('map_canvas'),
 var GeoMarker = new GeolocationMarker(map);
 ```
 
-[See the example](http://chadkillingsworth.github.io/geolocation-marker/test/example.html).
+[See the example](http://chadkillingsworth.github.io/geolocation-marker/example.html).
 
 *Note: This library will only function in browsers supporting the W3C Geolocation API. This excludes Internet Explorer versions 8 and older.*
 
-[Reference documentation](http://chadkillingsworth.github.io/geolocation-marker/docs/reference.html)
+[Reference documentation](http://chadkillingsworth.github.io/geolocation-marker/reference.html)
