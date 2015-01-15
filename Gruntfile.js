@@ -1,7 +1,8 @@
 module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-closure-compiler');
-  grunt.loadNpmTasks('grunt-curl');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-curl');
 
   grunt.task.registerTask('setup-env', 'Create intermediate build directories', function () {
     grunt.file.mkdir('build');
@@ -76,9 +77,20 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    connect: {
+      main: {
+        options: {
+          port: 7777,
+          base: '.',
+          keepalive: true,
+          open: 'http://localhost:7777/test/example.html'
+        }
+      }
     }
   });
 
   grunt.registerTask('deploy', ['clean', 'setup-env', 'closure-compiler' ]);
   grunt.registerTask('default', ['deploy']);
+  grunt.registerTask('test', ['deploy', 'connect']);
 };

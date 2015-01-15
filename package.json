@@ -2,7 +2,7 @@
   "name": "geolocation-marker",
   "description": "A library for adding a marker which tracks a user's location for use with the Google Maps JavaScript API v3.",
   "author": "Chad Killingsworth <chadkillingsworth@gmail.com",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "keywords": ["Google Maps", "Geolocation", "Marker"],
   "homepage": "http://chadkillingsworth.github.io/geolocation-marker/",
   "main": "Gruntfile.js",
@@ -26,6 +26,7 @@
     "grunt": "~0.4.0",
     "grunt-closure-compiler": "~0.0.21",
     "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-connect": "^0.8.0",
     "grunt-curl": "~2.0.3"
   }
 }
