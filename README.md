@@ -1,3 +1,5 @@
+---
+---
 # Geolocation Marker for Google Maps API v3
  
 This library uses geolocation to add a marker and accuracy circle to a map. The marker position is automatically updated as the user position changes.
