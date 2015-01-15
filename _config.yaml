@@ -4,7 +4,6 @@ redcarpet:
 defaults:
     scope:
       path: "/readme.md"
-      type: "pages"
     values:
       layout: "index"
       permalink: "/index.html"
