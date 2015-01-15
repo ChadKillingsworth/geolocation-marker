@@ -74,24 +74,14 @@ var GeolocationMarker = function (opt_map, opt_markerOpts, opt_circleOpts) {
   this.marker_ = new google.maps.Marker(markerOpts);
   this.circle_ = new google.maps.Circle(circleOpts);
 
-  /**
-   * @type {number?}
-   */
-  this['accuracy'] = null;
+  google.maps.MVCObject.prototype.set.call(this, 'accuracy', null);
+  google.maps.MVCObject.prototype.set.call(this, 'position', null);
+  google.maps.MVCObject.prototype.set.call(this, 'map', null);
 
-  /**
-   * @type {google.maps.LatLng?}
-   */
-  this['position'] = null;
-
-  /**
-   * @type {google.maps.Map?}
-   */
-  this['map'] = null;
   
-  this['set']('minimum_accuracy', null);
+  this.set('minimum_accuracy', null);
   
-  this['set']('position_options', /** GeolocationPositionOptions */
+  this.set('position_options', /** GeolocationPositionOptions */
       ({enableHighAccuracy: true, maximumAge: 1000}));
 
   this.circle_.bindTo('map', this.marker_);
@@ -130,7 +120,7 @@ GeolocationMarker.Init = function() {
    * @param {string} key
    * @param {*} value
    */
-  GeolocationMarker.prototype['set'] = function (key, value) {
+  GeolocationMarker.prototype.set = function (key, value) {
     if (GeolocationMarker.invalidPropertiesExpr_.test(key)) {
       throw '\'' + key + '\' is a read-only property.';
     } else if (key === 'map') {
@@ -154,46 +144,46 @@ GeolocationMarker.Init = function() {
 
   /** @return {google.maps.Map} */
   GeolocationMarker.prototype.getMap = function () {
-    return this['map'];
+    return /** @type {google.maps.Map|null} */ (this.get('map'));
   };
 
   /** @return {GeolocationPositionOptions} */
   GeolocationMarker.prototype.getPositionOptions = function () {
-    return /** @type GeolocationPositionOptions */(this.get('position_options'));
+    return /** @type {GeolocationPositionOptions} */(this.get('position_options'));
   };
 
-  /** @param {GeolocationPositionOptions|Object.<string, *>} positionOpts */
+  /** @param {!GeolocationPositionOptions|!Object.<string, *>} positionOpts */
   GeolocationMarker.prototype.setPositionOptions = function (positionOpts) {
-    this['set']('position_options', positionOpts);
+    this.set('position_options', positionOpts);
   };
 
-  /** @return {google.maps.LatLng?} */
+  /** @return {google.maps.LatLng|null} */
   GeolocationMarker.prototype.getPosition = function () {
-    return this['position'];
+    return /** @type {google.maps.LatLng|null} */ (this.get('position'));
   };
 
   /** @return {google.maps.LatLngBounds?} */
   GeolocationMarker.prototype.getBounds = function () {
-    if (this['position']) {
+    if (this.get('position')) {
       return this.circle_.getBounds();
     } else {
       return null;
     }
   };
 
-  /** @return {number?} */
+  /** @return {number|null} */
   GeolocationMarker.prototype.getAccuracy = function () {
-    return this['accuracy'];
+    return /** @type {number|null} */ (this.get('accuracy'));
   };
 
-  /** @return {number?} */
+  /** @return {number|null} */
   GeolocationMarker.prototype.getMinimumAccuracy = function () {
-    return /** @type {number?} */ (this.get('minimum_accuracy'));
+    return /** @type {number|null} */ (this.get('minimum_accuracy'));
   };
 
-  /** @param {number?} accuracy */
+  /** @param {number|null} accuracy */
   GeolocationMarker.prototype.setMinimumAccuracy = function (accuracy) {
-    this['set']('minimum_accuracy', accuracy);
+    this.set('minimum_accuracy', accuracy);
   };
 
   /**
@@ -202,18 +192,17 @@ GeolocationMarker.Init = function() {
    */
   GeolocationMarker.prototype.watchId_ = -1;
 
-  /** @param {google.maps.Map} map */
+  /** @param {google.maps.Map|null} map */
   GeolocationMarker.prototype.setMap = function (map) {
-    this['map'] = map;
-    this.notify('map');
+    google.maps.MVCObject.prototype.set.call(this, 'map', map);
     if (map) {
       this.watchPosition_();
     } else {
       this.marker_.unbind('position');
       this.circle_.unbind('center');
       this.circle_.unbind('radius');
-      this['accuracy'] = null;
-      this['position'] = null;
+      google.maps.MVCObject.prototype.set.call(this, 'accuracy', null);
+      google.maps.MVCObject.prototype.set.call(this, 'position', null);
       navigator.geolocation.clearWatch(this.watchId_);
       this.watchId_ = -1;
       this.marker_.setMap(map);
@@ -243,20 +232,20 @@ GeolocationMarker.Init = function() {
           position.coords.accuracy > this.getMinimumAccuracy()) {
         return;
       }
-      this.marker_.setMap(this['map']);
+      this.marker_.setMap(this.getMap());
       this.marker_.bindTo('position', this);
       this.circle_.bindTo('center', this, 'position');
       this.circle_.bindTo('radius', this, 'accuracy');
     }
 
-    if (this['accuracy'] != position.coords.accuracy) {
+    if (this.getAccuracy() != position.coords.accuracy) {
       // The local set method does not allow accuracy to be updated
       google.maps.MVCObject.prototype.set.call(this, 'accuracy',
           position.coords.accuracy);
     }
 
-    if (mapNotSet || this['position'] == null ||
-        !this['position'].equals(newPosition)) {
+    if (mapNotSet || this.getPosition() == null ||
+        !this.getPosition().equals(newPosition)) {
       // The local set method does not allow position to be updated
       google.maps.MVCObject.prototype.set.call(this, 'position', newPosition);
     }
@@ -264,19 +253,22 @@ GeolocationMarker.Init = function() {
 
   /**
    * @private
-   * @return {undefined}
    */
   GeolocationMarker.prototype.watchPosition_ = function () {
-    var self = this;
-
     if (navigator.geolocation) {
       this.watchId_ = navigator.geolocation.watchPosition(
-          function (position) { self.updatePosition_(position); },
-          function (e) {
-            google.maps.event.trigger(self, "geolocation_error", e);
-          },
+          goog.bind(this.updatePosition_, this),
+          goog.bind(this.geolocationError_, this),
           this.getPositionOptions());
     }
+  };
+
+  /**
+   * @private
+   * @param {GeolocationPositionError} data
+   */
+  GeolocationMarker.prototype.geolocationError_ = function (data) {
+    google.maps.event.trigger(this, 'geolocation_error', data);
   };
 
   /**
