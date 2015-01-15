@@ -40,14 +40,16 @@
 
 <p>To add the Geolocation Marker, just instantiate a new GeolocationMarker object, passing the constructor your map object:</p>
 
-<div class="highlight highlight-JavaScript"><pre><span class="pl-s">var</span> mapOptions <span class="pl-k">=</span> {
-  zoom<span class="pl-k">:</span> <span class="pl-c1">17</span>,
-  center<span class="pl-k">:</span> <span class="pl-k">new</span> <span class="pl-en">google.maps</span>.LatLng(<span class="pl-k">-</span><span class="pl-c1">34.397</span>, <span class="pl-c1">150.644</span>),
-  mapTypeId<span class="pl-k">:</span> google.maps.MapTypeId.ROADMAP
+{% highlight javascript %}
+var mapOptions = {
+  zoom: 17,
+  center: new google.maps.LatLng(-34.397, 150.644),
+  mapTypeId: google.maps.MapTypeId.ROADMAP
 };
-<span class="pl-s">var</span> map <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">google.maps</span>.Map(<span class="pl-s3">document</span>.<span class="pl-s3">getElementById</span>(<span class="pl-s1"><span class="pl-pds">'</span>map_canvas<span class="pl-pds">'</span></span>),
+var map = new google.maps.Map(document.getElementById('map_canvas'),
     mapOptions);
-<span class="pl-s">var</span> GeoMarker <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">GeolocationMarker</span>(map);</pre></div>
+var GeoMarker = new GeolocationMarker(map);
+{% endhighlight %}
 
 <p><a href="test/example.html">See the example</a>.</p>
 
