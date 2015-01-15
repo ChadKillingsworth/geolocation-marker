@@ -10,7 +10,7 @@ This library uses geolocation to add a marker and accuracy circle to a map. The 
 
 To add the Geolocation Marker, just instantiate a new GeolocationMarker object, passing the constructor your map object:
 
-```javascript
+```JavaScript
 var mapOptions = {
   zoom: 17,
   center: new google.maps.LatLng(-34.397, 150.644),
