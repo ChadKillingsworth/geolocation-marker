@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="Geolocation-marker : A library for adding a marker which tracks a user&#39;s location for use with the Google Maps JavaScript API v3.">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ site.path }}/stylesheets/stylesheet.css">
 
     <title>Geolocation-marker</title>
   </head>
@@ -31,31 +31,7 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
-<a id="geolocation-marker-for-google-maps-api-v3" class="anchor" href="#geolocation-marker-for-google-maps-api-v3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Geolocation Marker for Google Maps API v3</h1>
-
-<p>This library uses geolocation to add a marker and accuracy circle to a map. The marker position is automatically updated as the user position changes.</p>
-
-<p><img src="images/example.png" alt="GeolocationMarker example"></p>
-
-<p>To add the Geolocation Marker, just instantiate a new GeolocationMarker object, passing the constructor your map object:</p>
-
-{% highlight javascript %}
-var mapOptions = {
-  zoom: 17,
-  center: new google.maps.LatLng(-34.397, 150.644),
-  mapTypeId: google.maps.MapTypeId.ROADMAP
-};
-var map = new google.maps.Map(document.getElementById('map_canvas'),
-    mapOptions);
-var GeoMarker = new GeolocationMarker(map);
-{% endhighlight %}
-
-<p><a href="test/example.html">See the example</a>.</p>
-
-<p><em>Note: This library will only function in browsers supporting the W3C Geolocation API. This excludes Internet Explorer versions 8 and older.</em></p>
-
-<p><a href="reference.html">Reference documentation</a></p>
+         {{ content }}
       </section>
     </div>
 
