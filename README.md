@@ -1,7 +1,6 @@
 ---
 layout: index
 permalink: /index.html
-markdown: redcarpet
 ---
 
 # Geolocation Marker for Google Maps API v3
