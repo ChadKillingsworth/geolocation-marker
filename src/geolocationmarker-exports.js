@@ -13,9 +13,10 @@
  */
 
 /**
- * @name GeolocationMarker Exports
- * @author Chad Killingsworth [chadkillingsworth at missouristate.edu]
- * Copyright 2012 Missouri State University
+ * @name GeolocationMarker for Google Maps v3
+ * @version version 1.1
+ * @author Chad Killingsworth [chadkillingsworth at gmail.com]
+ * Copyright 2012
  * @fileoverview
  * Exports for compiling the GeolocationMarker library with Closure-compiler
  * for use in external code. When compiling the library with other user
