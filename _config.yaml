@@ -1,3 +1,10 @@
 markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+defaults:
+    scope:
+      path: "/readme.md"
+      type: "pages"
+    values:
+      layout: "index"
+      permalink: "/index.html"
