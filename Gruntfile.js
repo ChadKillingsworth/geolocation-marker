@@ -27,7 +27,9 @@ module.exports = function (grunt) {
     'closure-compiler': {
       deploy: {
         closurePath: '.',
-        js: ['src/**/*.js',
+        js: [
+          'lib/**/*.js',
+          'src/**/*.js',
           'build/**/*.js'],
         jsOutputFile: 'dist/geolocationmarker-compiled.js',
         maxBuffer: 500,
