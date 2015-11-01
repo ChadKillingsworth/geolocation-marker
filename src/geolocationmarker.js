@@ -39,14 +39,14 @@ var GeolocationMarker = function (opt_map, opt_markerOpts, opt_circleOpts) {
     'draggable': false,
     'flat': true,
     'icon': {
-        'url': 'http://chadkillingsworth.github.io/geolocation-marker/images/gpsloc.png',
+        'url': 'https://chadkillingsworth.github.io/geolocation-marker/images/gpsloc.png',
         'size': new google.maps.Size(34, 34),
         'scaledSize': new google.maps.Size(17, 17),
         'origin': new google.maps.Point(0, 0),
         'anchor': new google.maps.Point(8, 8)
     },
     // This marker may move frequently - don't force canvas tile redraw
-    'optimized': false, 
+    'optimized': false,
     'position': new google.maps.LatLng(0, 0),
     'title': 'Current location',
     'zIndex': 2
@@ -78,9 +78,9 @@ var GeolocationMarker = function (opt_map, opt_markerOpts, opt_circleOpts) {
   google.maps.MVCObject.prototype.set.call(this, 'position', null);
   google.maps.MVCObject.prototype.set.call(this, 'map', null);
 
-  
+
   this.set('minimum_accuracy', null);
-  
+
   this.set('position_options', /** GeolocationPositionOptions */
       ({enableHighAccuracy: true, maximumAge: 1000}));
 
