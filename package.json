@@ -2,31 +2,35 @@
   "name": "geolocation-marker",
   "description": "A library for adding a marker which tracks a user's location for use with the Google Maps JavaScript API v3.",
   "author": "Chad Killingsworth <chadkillingsworth@gmail.com",
-  "version": "1.1.3",
-  "keywords": ["Google Maps", "Geolocation", "Marker"],
+  "version": "2.0.0",
+  "keywords": [
+    "Google Maps",
+    "Geolocation",
+    "Marker"
+  ],
   "homepage": "http://chadkillingsworth.github.io/geolocation-marker/",
   "main": "Gruntfile.js",
   "bugs": {
-    "url" : "https://github.com/ChadKillingsworth/geolocation-marker/issues"
+    "url": "https://github.com/ChadKillingsworth/geolocation-marker/issues"
   },
   "license": "Apache-2.0",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/ChadKillingsworth/geolocation-marker.git"
+    "type": "git",
+    "url": "https://github.com/ChadKillingsworth/geolocation-marker.git"
   },
   "files": [
     "dist",
-    "src",
-    "Gruntfile.js"
+    "src"
   ],
   "directories": {},
   "dependencies": {},
   "devDependencies": {
-    "google-closure-tools-latest": ">=0.1.1",
-    "grunt": "~0.4.0",
-    "grunt-closure-compiler": "~0.0.21",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-connect": "^0.8.0",
-    "grunt-curl": "~2.0.3"
+    "del": "^2.0.2",
+    "google-closure-compiler": "^20151015.0.0",
+    "gulp": "^3.9.0",
+    "gulp-closure-compiler": "^0.3.1",
+    "gulp-connect": "^2.2.0",
+    "gulp-umd": "^0.2.0",
+    "mkdirp": "^0.5.1"
   }
 }
