@@ -1,2 +1,4 @@
-build
+dist
 node_modules
+geolocation-marker.js
+geolocation-marker.js.map

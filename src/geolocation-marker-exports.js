@@ -23,7 +23,7 @@
  * scripts, these exports are not needed.
  */
 
-import GeolocationMarker from './geolocationmarker';
+import GeolocationMarker from './geolocation-marker';
 
 ;(function(root, factory) {
    if (typeof root['define'] === 'function' && root['define']['amd']) {
