@@ -26,5 +26,10 @@ var GeoMarker = new GeolocationMarker(map);
 ## Modules
 The source now uses ES6 modules. It may be included in a build with an ES6 import.
 
-The compiled source now uses a UMD pattern so that it is compatible with UMD and commonjs
+The compiled source now uses a UMD pattern so that it is compatible with both AMD and commonjs
 modules. However, the library depends on the Google Maps API. The maps api must be defined prior to the GeolocationMarker inclusion.
+
+## Installing from Bower
+This repo no longer contains the compiled source files. To install the library using bower, use the release distributable url:
+
+    bower install https://github.com/ChadKillingsworth/geolocation-marker/releases/download/v2.0.0/geolocation-marker.tgz
