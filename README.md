@@ -1,10 +1,10 @@
 ---
 ---
 # Geolocation Marker for Google Maps API v3
- 
+
 This library uses geolocation to add a marker and accuracy circle to a map. The marker position is automatically updated as the user position changes.
 
-![GeolocationMarker example](http://chadkillingsworth.github.io/geolocation-marker/images/example.png)
+![GeolocationMarker example](https://chadkillingsworth.github.io/geolocation-marker/images/example.png)
 
 To add the Geolocation Marker, just instantiate a new GeolocationMarker object, passing the constructor your map object:
 
@@ -19,8 +19,8 @@ var map = new google.maps.Map(document.getElementById('map_canvas'),
 var GeoMarker = new GeolocationMarker(map);
 ```
 
-[See the example](http://chadkillingsworth.github.io/geolocation-marker/test/example.html).
+[See the example](https://chadkillingsworth.github.io/geolocation-marker/test/example.html).
 
 *Note: This library will only function in browsers supporting the W3C Geolocation API. This excludes Internet Explorer versions 8 and older.*
 
-[Reference documentation](http://chadkillingsworth.github.io/geolocation-marker/docs/reference.html)
+[Reference documentation](https://chadkillingsworth.github.io/geolocation-marker/docs/reference.html)
