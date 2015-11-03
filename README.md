@@ -5,7 +5,7 @@ This library uses geolocation to add a marker and accuracy circle to a map. The 
 ## Obtaining the Library
 
 ### Direct download
-Download the [latest release files](https://github.com/ChadKillingsworth/geolocation-marker/releases/tag/v2.0.0) directly.
+Download the [latest release files](https://github.com/ChadKillingsworth/geolocation-marker/releases/tag/v2.0.2) directly.
 
 ### npm
 This library is published on [npm](https://www.npmjs.com/package/geolocation-marker):
@@ -15,7 +15,7 @@ This library is published on [npm](https://www.npmjs.com/package/geolocation-mar
 ### Bower
 This repo no longer contains the compiled source files. To install the library using bower, use the release distributable url:
 
-    bower install https://github.com/ChadKillingsworth/geolocation-marker/releases/download/v2.0.0/geolocation-marker.tgz
+    bower install https://github.com/ChadKillingsworth/geolocation-marker/releases/download/v2.0.2/geolocation-marker.tgz
 
 ## Example Usage
 
