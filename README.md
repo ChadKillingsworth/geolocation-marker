@@ -13,9 +13,9 @@ This library is published on [npm](https://www.npmjs.com/package/geolocation-mar
     npm install geolocation-marker
 
 ### Bower
-    This repo no longer contains the compiled source files. To install the library using bower, use the release distributable url:
+This repo no longer contains the compiled source files. To install the library using bower, use the release distributable url:
 
-        bower install https://github.com/ChadKillingsworth/geolocation-marker/releases/download/v2.0.0/geolocation-marker.tgz
+    bower install https://github.com/ChadKillingsworth/geolocation-marker/releases/download/v2.0.0/geolocation-marker.tgz
 
 ## Example Usage
 
