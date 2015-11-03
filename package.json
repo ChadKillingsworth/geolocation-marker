@@ -2,7 +2,7 @@
   "name": "geolocation-marker",
   "description": "A library for adding a marker which tracks a user's location for use with the Google Maps JavaScript API v3.",
   "author": "Chad Killingsworth <chadkillingsworth@gmail.com",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "keywords": [
     "Google Maps",
     "Geolocation",

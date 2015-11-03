@@ -14,6 +14,8 @@
  * The marker position is automatically updated as the user position changes.
  */
 
+'use strict';
+
 class GeolocationMarker extends google.maps.MVCObject {
   /**
   * @param {google.maps.Map=} opt_map
