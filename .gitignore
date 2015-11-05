@@ -1,4 +1,5 @@
 dist
 node_modules
-geolocation-marker.js
-geolocation-marker.js.map
+/geolocation-marker.js
+/geolocation-marker.js.map
+/bower.json

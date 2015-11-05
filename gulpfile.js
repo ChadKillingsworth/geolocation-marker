@@ -12,7 +12,7 @@ gulp.task('clean', function() {
   } catch (e) { }
 });
 
-gulp.task('build', ['clean'], function() {
+gulp.task('compile', ['clean'], function() {
   return gulp.src('./src/**/*.js')
       .pipe(compiler({
         compilerPath: compilerPath + 'compiler.jar',
@@ -29,6 +29,13 @@ gulp.task('build', ['clean'], function() {
       }))
       .pipe(gulp.dest('./'));
 });
+
+gulp.task('copy', function() {
+  return gulp.src('./support/bower.json', {base: './support'})
+      .pipe(gulp.dest('./'));
+});
+
+gulp.task('build', ['compile', 'copy']);
 
 gulp.task('test', function () {
   connect.server({
