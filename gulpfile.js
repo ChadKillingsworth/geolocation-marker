@@ -4,6 +4,8 @@ var compilerPath = require.resolve('google-closure-compiler')
 var compiler = require('gulp-closure-compiler');
 var fs = require('fs');
 var connect = require('gulp-connect');
+var replace = require('gulp-replace');
+var packageInfo = require('./package.json');
 
 gulp.task('clean', function() {
   try {
@@ -27,6 +29,7 @@ gulp.task('compile', ['clean'], function() {
           output_wrapper: '(function(){%output%}).call(this)\n//# sourceMappingURL=geolocation-marker.js.map'
         }
       }))
+      .pipe(replace(/^ geolocation-marker$/m, ' geolocation-marker version ' + packageInfo.version))
       .pipe(gulp.dest('./'));
 });
 
