@@ -8,7 +8,7 @@
     "Geolocation",
     "Marker"
   ],
-  "homepage": "http://chadkillingsworth.github.io/geolocation-marker/",
+  "homepage": "https://chadkillingsworth.github.io/geolocation-marker/",
   "main": "geolocation-marker.js",
   "bugs": {
     "url": "https://github.com/ChadKillingsworth/geolocation-marker/issues"
