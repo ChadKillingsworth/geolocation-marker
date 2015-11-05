@@ -1,5 +1,5 @@
 (function(){/*
- geolocation-marker
+ geolocation-marker version 2.0.4
  @copyright 2012, 2015 Chad Killingsworth
  @see https://github.com/ChadKillingsworth/geolocation-marker/blob/master/LICENSE.txt
 */
