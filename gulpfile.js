@@ -1,7 +1,8 @@
 var gulp = require('gulp');
-var compilerPath = require.resolve('google-closure-compiler')
-    .replace(/\/package\.json$/, '/');
-var compiler = require('gulp-closure-compiler');
+var sourcemaps = require('gulp-sourcemaps');
+var compiler = require('google-closure-compiler');
+var closureCompilerGulp = compiler.gulp();
+
 var fs = require('fs');
 var connect = require('gulp-connect');
 var replace = require('gulp-replace');
@@ -15,21 +16,19 @@ gulp.task('clean', function() {
 });
 
 gulp.task('compile', ['clean'], function() {
-  return gulp.src('./src/**/*.js')
-      .pipe(compiler({
-        compilerPath: compilerPath + 'compiler.jar',
-        fileName: 'geolocation-marker.js',
-        compilerFlags: {
+  return gulp.src('./src/**/*.js', {base: './'})
+      .pipe(sourcemaps.init())
+      .pipe(closureCompilerGulp({
           compilation_level: 'ADVANCED',
           warning_level: 'VERBOSE',
-          externs: compilerPath + 'contrib/externs/maps/google_maps_api_v3.js',
+          externs: compiler.compiler.CONTRIB_PATH + '/externs/maps/google_maps_api_v3.js',
           language_in: 'ECMASCRIPT6_STRICT',
           language_out: 'ECMASCRIPT5_STRICT',
-          create_source_map: './geolocation-marker.js.map',
-          output_wrapper: '(function(){%output%}).call(this)\n//# sourceMappingURL=geolocation-marker.js.map'
-        }
-      }))
+          output_wrapper: '(function(){\n%output%\n}).call(this)',
+          js_output_file: 'geolocation-marker.js'
+        }))
       .pipe(replace(/^ geolocation-marker$/m, ' geolocation-marker version ' + packageInfo.version))
+      .pipe(sourcemaps.write('/'))
       .pipe(gulp.dest('./'));
 });
 
