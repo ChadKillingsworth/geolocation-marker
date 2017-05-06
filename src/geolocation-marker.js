@@ -19,11 +19,18 @@
 class GeolocationMarker extends google.maps.MVCObject {
   /**
   * @param {google.maps.Map=} opt_map
+  * @param {(google.maps.MarkerOptions|Object.<string>)=} opt_outerMarkerOpts
   * @param {(google.maps.MarkerOptions|Object.<string>)=} opt_markerOpts
   * @param {(google.maps.CircleOptions|Object.<string>)=} opt_circleOpts
   */
-  constructor(opt_map, opt_markerOpts, opt_circleOpts) {
+  constructor(opt_map, opt_outerMarkerOpts, opt_markerOpts, opt_circleOpts) {
      super();
+
+     /**
+      * @private
+      * @type {google.maps.Marker}
+      */
+     this.outerMarker_ = null;
 
      /**
       * @private
@@ -43,17 +50,17 @@ class GeolocationMarker extends google.maps.MVCObject {
       */
      this.watchId_ = -1;
 
-     var markerOpts = {
+     var outerMarkerOpts = {
        'clickable': false,
        'cursor': 'pointer',
        'draggable': false,
        'flat': true,
        'icon': {
-           'url': 'https://chadkillingsworth.github.io/geolocation-marker/images/gpsloc.png',
-           'size': new google.maps.Size(34, 34),
-           'scaledSize': new google.maps.Size(17, 17),
-           'origin': new google.maps.Point(0, 0),
-           'anchor': new google.maps.Point(8, 8)
+           'path': google.maps.SymbolPath.CIRCLE,
+           'fillColor': '#C8D6EC',
+           'fillOpacity': 0.7,
+           'scale': 12,
+           'strokeWeight': 0,
        },
        // This marker may move frequently - don't force canvas tile redraw
        'optimized': false,
@@ -61,6 +68,30 @@ class GeolocationMarker extends google.maps.MVCObject {
        'title': 'Current location',
        'zIndex': 2
      };
+
+     var markerOpts = {
+       'clickable': false,
+       'cursor': 'pointer',
+       'draggable': false,
+       'flat': true,
+       'icon': {
+           'path': google.maps.SymbolPath.CIRCLE,
+           'fillColor': '#4285F4',
+           'fillOpacity': 1,
+           'scale': 6,
+           'strokeColor': 'white',
+           'strokeWeight': 2,
+       },
+       // This marker may move frequently - don't force canvas tile redraw
+       'optimized': false,
+       'position': new google.maps.LatLng(0, 0),
+       'title': 'Current location',
+       'zIndex': 3
+     };
+
+     if(opt_outerMarkerOpts) {
+       outerMarkerOpts = this.copyOptions_(outerMarkerOpts, opt_outerMarkerOpts);
+     }
 
      if(opt_markerOpts) {
        markerOpts = this.copyOptions_(markerOpts, opt_markerOpts);
@@ -81,6 +112,7 @@ class GeolocationMarker extends google.maps.MVCObject {
        circleOpts = this.copyOptions_(circleOpts, opt_circleOpts);
      }
 
+     this.outerMarker_ = new google.maps.Marker(outerMarkerOpts);
      this.marker_ = new google.maps.Marker(markerOpts);
      this.circle_ = new google.maps.Circle(circleOpts);
 
@@ -93,6 +125,7 @@ class GeolocationMarker extends google.maps.MVCObject {
      this.set('position_options', /** GeolocationPositionOptions */
          ({enableHighAccuracy: true, maximumAge: 1000}));
 
+     this.circle_.bindTo('map', this.outerMarker_);
      this.circle_.bindTo('map', this.marker_);
 
      if(opt_map) {
@@ -165,6 +198,7 @@ class GeolocationMarker extends google.maps.MVCObject {
      if (map) {
        this.watchPosition_();
      } else {
+       this.outerMarker_.unbind('position');
        this.marker_.unbind('position');
        this.circle_.unbind('center');
        this.circle_.unbind('radius');
@@ -172,8 +206,14 @@ class GeolocationMarker extends google.maps.MVCObject {
        google.maps.MVCObject.prototype.set.call(this, 'position', null);
        navigator.geolocation.clearWatch(this.watchId_);
        this.watchId_ = -1;
+       this.outerMarker_.setMap(map);
        this.marker_.setMap(map);
      }
+  }
+
+  /** @param {google.maps.MarkerOptions|Object.<string>} outerMarkerOpts */
+  setOuterMarkerOptions(outerMarkerOpts) {
+     this.outerMarker_.setOptions(this.copyOptions_({}, outerMarkerOpts));
   }
 
   /** @param {google.maps.MarkerOptions|Object.<string>} markerOpts */
@@ -199,7 +239,9 @@ class GeolocationMarker extends google.maps.MVCObject {
            position.coords.accuracy > this.getMinimumAccuracy()) {
          return;
        }
+       this.outerMarker_.setMap(this.getMap());
        this.marker_.setMap(this.getMap());
+       this.outerMarker_.bindTo('position', this);
        this.marker_.bindTo('position', this);
        this.circle_.bindTo('center', this, 'position');
        this.circle_.bindTo('radius', this, 'accuracy');
