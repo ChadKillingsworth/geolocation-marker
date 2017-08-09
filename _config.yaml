@@ -1,12 +1,5 @@
-exclude: ["params.json", "src", "assets"]
+exclude: ["params.json", "src"]
 defaults:
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "index"
-      permalink: "/index.html"
   -
      scope:
        path: "docs"
