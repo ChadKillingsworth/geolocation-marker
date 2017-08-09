@@ -1,7 +1,6 @@
 ---
 title: Geolocation Marker for Google Maps API v3
 layout: index
-permalink: "/index.html"
 type: pages
 ---
 
