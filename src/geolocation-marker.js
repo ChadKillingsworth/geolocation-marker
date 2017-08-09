@@ -62,8 +62,6 @@ class GeolocationMarker extends google.maps.MVCObject {
            'scale': 12,
            'strokeWeight': 0,
        },
-       // This marker may move frequently - don't force canvas tile redraw
-       'optimized': false,
        'position': new google.maps.LatLng(0, 0),
        'title': 'Current location',
        'zIndex': 2
