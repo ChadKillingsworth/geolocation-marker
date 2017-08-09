@@ -1,5 +1,6 @@
 ---
 title: Geolocation Marker for Google Maps API v3
+layout: index
 ---
 
 # Geolocation Marker for Google Maps API v3

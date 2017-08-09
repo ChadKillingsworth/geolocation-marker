@@ -1,4 +1,4 @@
-exclude: ["params.json", "src"]
+exclude: ["params.json", "src", "assets"]
 defaults:
   -
     scope:
