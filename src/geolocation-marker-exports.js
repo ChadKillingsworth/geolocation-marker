@@ -23,7 +23,7 @@
  * scripts, these exports are not needed.
  */
 
-import GeolocationMarker from './geolocation-marker';
+import GeolocationMarker from './geolocation-marker.js';
 
 ;(function(root, factory) {
    if (typeof root['define'] === 'function' && root['define']['amd']) {
@@ -33,7 +33,7 @@ import GeolocationMarker from './geolocation-marker';
    } else {
      root['GeolocationMarker'] = factory();
    }
- }(this, function() {
+ }(window, function() {
   GeolocationMarker.prototype['getAccuracy'] = GeolocationMarker.prototype.getAccuracy;
   GeolocationMarker.prototype['getBounds'] = GeolocationMarker.prototype.getBounds;
   GeolocationMarker.prototype['getMap'] = GeolocationMarker.prototype.getMap;
